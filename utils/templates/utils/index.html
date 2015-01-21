@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDos, Son!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'utils/style.css' %}" />
+</head>
+<body>
+    <header>
+        <h1>ToDo</h1>
+    </header>
+
+    <div id="put-list-here"></div>
+
+    <script type="text/html" id="list-item">
+        <input class="item-done" type="checkbox"></input>
+        <%= title %>
+    </script>
+
+    <script type="text/html" id="list-view">
+        <ul></ul>
+        <input type="text" class="item-title" placeholder="Add another note"></input>
+        <button class="add-item">Add</button>
+    </script>
+
+    <script data-main="/static/utils/scripts/app" src="{% static 'utils/scripts/require.js' %}"></script>
+</body>
+</html>
