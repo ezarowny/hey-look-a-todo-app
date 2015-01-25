@@ -1,4 +1,5 @@
-define('app/views', [], function() {
+// define('app/views', [], function() {
+define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], function ($, _, Backbone, Marionette, models) {
     var ToDoView = Backbone.Marionette.ItemView.extend({
         tagName: 'li',
         template: Backbone.Marionette.TemplateCache.get("#list-item"),
@@ -20,7 +21,6 @@ define('app/views', [], function() {
         setDoneState: function() {
             var isDone = this.ui.itemDone.prop("checked");
             this.model.setDone(isDone);
-            console.log(this.model.getDone())
         }
     });
 
@@ -39,7 +39,7 @@ define('app/views', [], function() {
         },
 
         addItem: function() {
-            var listItem = new ToDo({
+            var listItem = new models.ToDo({
                 'done': false,
                 'title': this.ui.itemTitle.val()
             });

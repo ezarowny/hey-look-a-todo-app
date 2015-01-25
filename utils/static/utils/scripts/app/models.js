@@ -1,4 +1,5 @@
-define('app/models', [''], function() {
+// define('app/models', [''], function() {
+define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
     var ToDo = Backbone.Model.extend({
         getDone: function() {
             return this.get("done");
@@ -17,4 +18,4 @@ define('app/models', [''], function() {
         ToDo: ToDo,
         ToDoList: ToDoList
     };
-)};
+});
