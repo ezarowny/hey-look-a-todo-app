@@ -1,4 +1,3 @@
-// define('app/views', [], function() {
 define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], function ($, _, Backbone, Marionette, models) {
     var ToDoView = Backbone.Marionette.ItemView.extend({
         tagName: 'li',
@@ -44,7 +43,7 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
                 'title': this.ui.itemTitle.val()
             });
             this.ui.itemTitle.val("");
-            this.collection.add(listItem);
+            this.collection.create(listItem);
         }
     });
 
