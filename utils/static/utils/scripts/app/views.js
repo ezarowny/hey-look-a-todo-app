@@ -4,22 +4,34 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
         template: Backbone.Marionette.TemplateCache.get("#list-item"),
 
         ui: {
-            'itemDone': '.item-done'
+            'toggleItemDone': '.toggle-item-done',
+            'deleteItem': '.delete'
         },
 
         events: {
-            "click @ui.itemDone": "setDoneState"
+            "click @ui.toggleItemDone": "toggleDoneState",
+            "click @ui.deleteItem": "deleteTodo"
         },
 
         onRender: function() {
             if (this.model.getDone()) {
-                this.ui.itemDone.prop("checked", true);
+                this.ui.toggleItemDone.prop("checked", true);
+                this.ui.toggleItemDone.parent().toggleClass("completed");
             }
         },
 
-        setDoneState: function() {
-            var isDone = this.ui.itemDone.prop("checked");
+        toggleDoneState: function() {
+            var isDone = this.ui.toggleItemDone.prop("checked");
             this.model.setDone(isDone);
+            if (this.model.getDone()) {
+                this.ui.toggleItemDone.parent().toggleClass("completed");
+            } else {
+                this.ui.toggleItemDone.parent().toggleClass("completed");
+            }
+        },
+
+        deleteTodo: function() {
+            this.model.destroy();
         }
     });
 
@@ -34,7 +46,13 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
         },
 
         events: {
-            "click @ui.addItem": "addItem"
+            "click @ui.addItem": "addItem",
+            "keypress #newTodoItem": "onKeyPress"
+        },
+
+        onKeyPress: function(e){
+            if (e.keyCode == 13)
+                this.addItem();
         },
 
         addItem: function() {

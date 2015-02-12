@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>ToDos, Son!</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'utils/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'utils/css/style.css' %}" />
 </head>
 <body>
     <header>
@@ -14,13 +14,14 @@
     <div id="put-list-here"></div>
 
     <script type="text/html" id="list-item">
-        <input class="item-done" type="checkbox"></input>
+        <input class="toggle-item-done" type="checkbox"></input>
         <%= title %>
+        <button class="delete">Delete!</button>
     </script>
 
     <script type="text/html" id="list-view">
         <ul></ul>
-        <input type="text" class="item-title" placeholder="Add another note"></input>
+        <input type="text" id="newTodoItem" class="item-title" autofocus placeholder="Add another note"></input>
         <button class="add-item">Add</button>
     </script>
 

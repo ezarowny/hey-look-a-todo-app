@@ -1,0 +1,20 @@
+/*li a {
+    color: green;
+}*/
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.toggle-item-done {
+    margin-left: 0;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+#newTodoItem {
+    margin-left: 20px;
+}
