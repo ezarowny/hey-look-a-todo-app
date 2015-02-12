@@ -16,7 +16,7 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
         onRender: function() {
             if (this.model.getDone()) {
                 this.ui.toggleItemDone.prop("checked", true);
-                this.ui.toggleItemDone.parent().toggleClass("completed");
+                this.ui.toggleItemDone.parent().addClass("completed");
             }
         },
 
@@ -24,9 +24,9 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
             var isDone = this.ui.toggleItemDone.prop("checked");
             this.model.setDone(isDone);
             if (this.model.getDone()) {
-                this.ui.toggleItemDone.parent().toggleClass("completed");
+                this.ui.toggleItemDone.parent().addClass("completed");
             } else {
-                this.ui.toggleItemDone.parent().toggleClass("completed");
+                this.ui.toggleItemDone.parent().removeClass("completed");
             }
         },
 
