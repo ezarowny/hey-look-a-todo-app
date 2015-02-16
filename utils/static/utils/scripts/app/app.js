@@ -1,7 +1,14 @@
 define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models', 'app/views'], function ($, _, Backbone, Marionette, models, views) {
     var initialize = function() {
-        // var App = new Marionette.Application();
-        // App.start();
+        (function() {
+            var _sync = Backbone.sync;
+            Backbone.sync = function(method, model, options) {
+                options.beforeSend = function(xhr) {
+                    xhr.setRequestHeader('X-CSRFToken', config.CSRF_TOKEN);
+                };
+                return _sync(method, model, options);
+            };
+        })();
 
         var toDoList = new models.ToDoList();
         toDoList.fetch({

@@ -15,5 +15,12 @@
     <div id="content">
         {% block content %}{% endblock %}
     </div>
+
+    <script>
+        var config = {
+            CSRF_TOKEN: '{{ csrf_token }}',
+            uid: '{{ user.id }}'
+        };
+    </script>
 </body>
 </html>

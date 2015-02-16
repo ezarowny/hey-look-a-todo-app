@@ -58,7 +58,8 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
         addItem: function() {
             var listItem = new models.ToDo({
                 'done': false,
-                'title': this.ui.itemTitle.val()
+                'title': this.ui.itemTitle.val(),
+                'user': config.uid
             });
             this.ui.itemTitle.val("");
             this.collection.create(listItem);
