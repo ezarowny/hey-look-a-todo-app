@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'utils/css/style.css' %}" />
+    <title>{% block title %}ToDos, Son!{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>ToDo</h1>
+    </header>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'hey_look_a_todo_app.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^', include('accounts.urls')),
     url(r'^', include('utils.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

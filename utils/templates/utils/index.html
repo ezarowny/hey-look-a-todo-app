@@ -1,17 +1,15 @@
+{% extends "utils/base.html" %}
+
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ToDos, Son!</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'utils/css/style.css' %}" />
-</head>
-<body>
-    <header>
-        <h1>ToDo</h1>
-    </header>
+{% block content %}
 
+{% if not user.is_authenticated %}
+    Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'signup' %}">sign up</a>!
+{% else %}
     <div id="put-list-here"></div>
+
+    <a href="{% url 'logout' %}">Log Out</a>
 
     <script type="text/html" id="list-item">
         <input class="toggle-item-done" type="checkbox"></input>
@@ -26,5 +24,6 @@
     </script>
 
     <script data-main="/static/utils/scripts/main" src="{% static 'utils/scripts/require.js' %}"></script>
-</body>
-</html>
+{% endif %}
+
+{% endblock %}

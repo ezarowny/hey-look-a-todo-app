@@ -58,3 +58,6 @@ target/
 
 # SQLite databases
 *.sqlite3
+
+# Bower
+bower_components/
