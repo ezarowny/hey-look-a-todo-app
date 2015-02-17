@@ -41,28 +41,23 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models'], functio
         template: Backbone.Marionette.TemplateCache.get("#list-view"),
 
         ui: {
-            'addItem': '.add-item',
             'itemTitle': '.item-title'
         },
 
         events: {
-            "click @ui.addItem": "addItem",
             "keypress #newTodoItem": "onKeyPress"
         },
 
         onKeyPress: function(e){
-            if (e.keyCode == 13)
-                this.addItem();
-        },
-
-        addItem: function() {
-            var listItem = new models.ToDo({
-                'done': false,
-                'title': this.ui.itemTitle.val(),
-                'user': config.uid
-            });
-            this.ui.itemTitle.val("");
-            this.collection.create(listItem);
+            if (e.keyCode == 13) {
+                var listItem = new models.ToDo({
+                    'done': false,
+                    'title': this.ui.itemTitle.val(),
+                    'user': config.uid
+                });
+                this.ui.itemTitle.val("");
+                this.collection.create(listItem);
+            }
         }
     });
 
