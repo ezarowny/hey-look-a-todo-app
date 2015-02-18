@@ -15,7 +15,7 @@ define(['jquery', 'underscore', 'backbone', 'marionette', 'app/models', 'app/vie
             success: function(c) {
                 (new views.ToDoListView({
                     collection: c,
-                    el: '#put-list-here'
+                    el: '#todo-list'
                 })).render();
             }
         });
