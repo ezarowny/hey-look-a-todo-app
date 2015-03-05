@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.template.response import TemplateResponse
 
+from todo.models import ToDoList
+
 
 def signup(request):
     if request.method == "POST":
@@ -14,6 +16,8 @@ def signup(request):
 
             user = authenticate(username=username, password=password)
             login(request, user)
+
+            ToDoList.objects.create(title='ToDos', user=user)
 
             return HttpResponseRedirect('/')
     else:

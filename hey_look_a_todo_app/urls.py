@@ -7,6 +7,7 @@ from todo import views
 
 router = routers.DefaultRouter()
 router.register(r'todo', views.ToDoViewSet)
+router.register(r'todo-list', views.ToDoListViewSet)
 
 urlpatterns = patterns('',
     # Examples:
